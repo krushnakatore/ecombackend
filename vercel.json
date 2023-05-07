@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "name": "Project_deploy",
+  "builds": [{ "src": "./functions/server.js", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "./functions/server.js" }]
+}
