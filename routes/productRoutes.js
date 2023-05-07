@@ -1,5 +1,5 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   braintreePaymentController,
   braintreeTokenController,
   createProductController,
@@ -14,9 +14,9 @@ import {
   productSearchController,
   productSimilarController,
   updateProductController,
-} from '../controllers/productController.js';
-import { isAdmin, reqSignIn } from '../middlewares/authMiddleware.js';
-import ExpressFormidable from 'express-formidable';
+} = require('../controllers/productController.js');
+const { isAdmin, reqSignIn } = require('../middlewares/authMiddleware.js');
+const ExpressFormidable = require('express-formidable');
 
 const router = express.Router();
 
@@ -62,4 +62,4 @@ router.get('/braintree/token', braintreeTokenController);
 
 router.post('/braintree/payment', reqSignIn, braintreePaymentController);
 
-export default router;
+module.exports = router;

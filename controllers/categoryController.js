@@ -1,7 +1,7 @@
-import categoryModel from '../models/categoryModel.js';
-import slugify from 'slugify';
+const categoryModel = require('../models/categoryModel.js');
+const slugify = require('slugify');
 
-export const categoryController = async (req, res) => {
+const categoryController = async (req, res) => {
   try {
     const { name } = req.body;
 
@@ -33,7 +33,7 @@ export const categoryController = async (req, res) => {
   }
 };
 
-export const categoryUpdateController = async (req, res) => {
+const categoryUpdateController = async (req, res) => {
   try {
     const { name } = req.body;
     const { id } = req.params;
@@ -57,7 +57,7 @@ export const categoryUpdateController = async (req, res) => {
   }
 };
 
-export const getAllCategoryController = async (req, res) => {
+const getAllCategoryController = async (req, res) => {
   try {
     const category = await categoryModel.find({});
     res
@@ -70,7 +70,7 @@ export const getAllCategoryController = async (req, res) => {
   }
 };
 
-export const getSingleCategoryController = async (req, res) => {
+const getSingleCategoryController = async (req, res) => {
   try {
     const category = await categoryModel.findOne({ slug: req.params.slug });
     res
@@ -85,7 +85,7 @@ export const getSingleCategoryController = async (req, res) => {
   }
 };
 
-export const deleteCategoryController = async (req, res) => {
+const deleteCategoryController = async (req, res) => {
   try {
     const { id } = req.params;
     const category = await categoryModel.findByIdAndDelete(id);
@@ -101,4 +101,12 @@ export const deleteCategoryController = async (req, res) => {
       .status(500)
       .send({ success: false, message: 'Error in delete category' });
   }
+};
+
+module.exports = {
+  deleteCategoryController,
+  getSingleCategoryController,
+  getAllCategoryController,
+  categoryUpdateController,
+  categoryController,
 };
