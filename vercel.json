@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "name": "e_commerce",
-  "builds": [{ "src": "./functions/server.js", "use": "@vercel/node" }],
-  "routes": [{ "src": "/(.*)", "dest": "./functions/server.js" }]
-}
