@@ -23,8 +23,6 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.1.0",
     "morgan": "^1.10.0",
-    "netlify-cli": "^15.0.0",
-    "netlify-lambda": "^2.0.16",
     "nodemon": "^2.0.22",
     "react-router-dom": "^6.11.0",
     "serverless-http": "^3.2.0",
